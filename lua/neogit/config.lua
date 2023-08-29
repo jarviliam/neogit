@@ -221,6 +221,7 @@ function M.get_default_values()
       },
       status = {
         ["q"] = "Close",
+        ["i"] = "IgnorePopup",
         ["I"] = "InitRepo",
         ["1"] = "Depth1",
         ["2"] = "Depth2",

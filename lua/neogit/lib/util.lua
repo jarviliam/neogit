@@ -360,6 +360,22 @@ local function pad_right(s, len)
   return s .. string.rep(" ", math.max(len - #s, 0))
 end
 
+--- Removes duplicates entries in a one-dimensional table
+---@param t table
+---@return table
+local function filter_unique(t)
+  local set = {}
+  local result = {}
+
+  for _, value in ipairs(t) do
+    if not set[value] then
+      table.insert(result, value)
+      set[value] = true
+    end
+  end
+  return result
+end
+
 return {
   time = time,
   time_async = time_async,
@@ -394,4 +410,5 @@ return {
   reverse = reverse,
   flat_map = flat_map,
   str_wrap = str_wrap,
+  filter_unique = filter_unique,
 }

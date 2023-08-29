@@ -50,6 +50,14 @@ function M.mappings_table()
     },
     { "LogPopup", "Log", M.open("log") },
     {
+      "IgnorePopup",
+      "Ignore",
+      M.open("ignore", function(f)
+        local untracked_files = require("neogit.lib.git.repository").state.untracked
+        f { untracked = untracked_files }
+      end),
+    },
+    {
       "CherryPickPopup",
       "Cherry Pick",
       {

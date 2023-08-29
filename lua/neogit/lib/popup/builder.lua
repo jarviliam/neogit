@@ -5,8 +5,21 @@ local util = require("neogit.lib.util")
 local notif = require("neogit.lib.notification")
 local logger = require("neogit.logger")
 
+---@class BuilderState
+---@field name string|nil
+---@field args table
+---@field config table
+---@field env table
+---@field keys table
+
+--- @class PopupBuilder
+--- @field state BuilderState
+--- @field builder_fn function
 local M = {}
 
+--- PopupBuilder
+---@param builder_fn function
+---@return PopupBuilder
 function M.new(builder_fn)
   local instance = {
     state = {
@@ -25,6 +38,9 @@ function M.new(builder_fn)
   return instance
 end
 
+--- Set builders name
+---@param x string
+---@return PopupBuilder
 function M:name(x)
   self.state.name = x
   return self
@@ -301,6 +317,8 @@ function M:action_if(cond, key, description, callback)
   return self
 end
 
+--- Builds the actual popup with the builder state
+---@return Popup
 function M:build()
   if self.state.name == nil then
     error("A popup needs to have a name!")

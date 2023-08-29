@@ -23,11 +23,11 @@ end
 
 -- TODO: Handle when head is detached
 function M.log_current(popup)
-  LogViewBuffer.new(commits(popup), popup:get_internal_arguments()):open()
+  LogViewBuffer.new(commits(popup), popup:get_internal_arguments(), popup:get_arguments()):open()
 end
 
 function M.log_head(popup)
-  LogViewBuffer.new(commits(popup, { "HEAD" }), popup:get_internal_arguments()):open()
+  LogViewBuffer.new(commits(popup, { "HEAD" }), popup:get_internal_arguments(), popup:get_arguments()):open()
 end
 
 function M.log_local_branches(popup)

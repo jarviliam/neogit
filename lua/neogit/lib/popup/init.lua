@@ -21,12 +21,20 @@ local intersperse = util.intersperse
 local List = common.List
 local Grid = common.Grid
 
+--- @class Popup
+--- @field state BuilderState
+--- @field buffer table|nil
 local M = {}
 
+--- Create a popup builder
+---@return PopupBuilder
 function M.builder()
   return PopupBuilder.new(M.new)
 end
 
+--- Creates a new popup
+---@param state BuilderState
+---@return Popup
 function M.new(state)
   local instance = {
     state = state,

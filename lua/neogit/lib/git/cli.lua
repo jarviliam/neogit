@@ -438,6 +438,9 @@ local configurations = {
       deduplicate = "--deduplicate",
       exclude_standard = "--exclude-standard",
       full_name = "--full-name",
+      nul_termination = "-z",
+      directory = "--directory",
+      no_empty_directory = "--no-empty-directory",
     },
   },
 
