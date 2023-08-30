@@ -162,6 +162,10 @@ function M.get_default_values()
         folded = false,
         hidden = false,
       },
+      bisect = {
+        folded = false,
+        hidden = false,
+      },
       unstaged = {
         folded = false,
         hidden = false,

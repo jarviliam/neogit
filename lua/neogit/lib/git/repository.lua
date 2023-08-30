@@ -29,6 +29,10 @@ local function empty_state()
       unmerged       = { items = {} },
       unpulled       = { items = {} },
     },
+    bisect = {
+      in_progress = false,
+      items = {},
+    },
     pushRemote   = {
       commit_message = nil,
       unmerged       = { items = {} },
@@ -125,6 +129,11 @@ function M.refresh(self, lib)
         self.lib.update_recent(self.state)
       end)
     end
+    if lib.bisect then
+      table.insert(refreshes, function()
+        self.lib.update_bisect(self.state)
+      end)
+    end
 
     if lib.diffs then
       local filter = (type(lib) == "table" and type(lib.diffs) == "table") and lib.diffs or nil
@@ -169,6 +178,7 @@ if not M.initialized then
     "rebase",
     "sequencer",
     "merge",
+    "bisect",
   }
 
   for _, m in ipairs(modules) do

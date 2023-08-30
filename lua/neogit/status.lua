@@ -221,7 +221,8 @@ local function draw_buffer()
     end
 
     data = data or git.repo[key]
-    if #data.items == 0 then
+    if key == "bisect" and data.in_progress then
+    elseif #data.items == 0 then
       return
     end
 
@@ -310,6 +311,7 @@ local function draw_buffer()
     render_section("Picking", "sequencer")
   end
 
+  render_section("Bisecting", "bisect")
   render_section("Untracked files", "untracked")
   render_section("Unstaged changes", "unstaged")
   render_section("Staged changes", "staged")

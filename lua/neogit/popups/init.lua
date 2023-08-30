@@ -62,7 +62,14 @@ function M.mappings_table()
         end),
       },
     },
-    { "BisectPopup", "Bisect", M.open("bisect") },
+    {
+      "BisectPopup",
+      "Bisect",
+      M.open("bisect", function(f)
+        local is_bisecting = require("neogit.lib.git").repo.bisect.in_progress
+        f { is_bisecting = is_bisecting }
+      end),
+    },
     {
 
       "BranchPopup",
