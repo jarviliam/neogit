@@ -221,9 +221,11 @@ local function draw_buffer()
     end
 
     data = data or git.repo[key]
-    if key == "bisect" and data.in_progress then
-    elseif #data.items == 0 then
-      return
+    if key ~= "bisect" then
+      if #data.items == 0 then
+        return
+      end
+    else
     end
 
     if data.current then
