@@ -62,7 +62,9 @@ function M.mappings_table()
         end),
       },
     },
+    { "BisectPopup", "Bisect", M.open("bisect") },
     {
+
       "BranchPopup",
       "Branch",
       {

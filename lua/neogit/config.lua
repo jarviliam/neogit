@@ -252,6 +252,7 @@ function M.get_default_values()
         ["v"] = "RevertPopup",
         ["Z"] = "StashPopup",
         ["A"] = "CherryPickPopup",
+        ["B"] = "BisectPopup",
         ["b"] = "BranchPopup",
         ["f"] = "FetchPopup",
         ["X"] = "ResetPopup",

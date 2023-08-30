@@ -193,16 +193,16 @@ function Finder:find(on_select)
         attach_mappings = telescope_mappings(on_select, self.opts.allow_multi),
       })
       :find()
-  elseif config.check_integration("fzf_lua") then
-    local fzf_lua = require("fzf-lua")
-    fzf_lua.fzf_exec(self.entries, {
-      prompt = self.opts.prompt_prefix,
-      fzf_opts = fzf_opts(self.opts),
-      winopts = {
-        height = self.opts.layout_config.height,
-      },
-      actions = fzf_actions(on_select, self.opts.allow_multi),
-    })
+  -- elseif config.check_integration("fzf_lua") then
+  --   local fzf_lua = require("fzf-lua")
+  --   fzf_lua.fzf_exec(self.entries, {
+  --     prompt = self.opts.prompt_prefix,
+  --     fzf_opts = fzf_opts(self.opts),
+  --     winopts = {
+  --       height = self.opts.layout_config.height,
+  --     },
+  --     actions = fzf_actions(on_select, self.opts.allow_multi),
+  --   })
   else
     vim.ui.select(self.entries, {
       prompt = self.opts.prompt_prefix,

@@ -138,6 +138,31 @@ local configurations = {
     },
   },
 
+  bisect = config {
+    flags = {
+      bad = "bad", -- mark current or given revision as bad
+      good = "good", -- mark current or given revision as good
+      help = "help", -- display a short usage description
+      log = "log", -- show log of the current bisection
+      new = "new", -- mark current or given revision as bad
+      next = "next", -- find next bisection to test and check it out
+      old = "old", -- mark current or given revision as good
+      replay = "replay", -- replay a bisection log
+      reset = "reset", -- finish bisection search and return to the given branch (or master)
+      run = "run", -- run evaluation script
+      skip = "skip", -- choose a nearby commit
+      start = "start", -- reset bisection state and start a new bisection
+      terms = "terms", -- show currently used good/bad terms
+      view = "view", -- show the remaining revisions in gitk
+      visualize = "visualize", -- show the remaining revisions in gitk
+    },
+  },
+  ["for-each-ref"] = config {
+    options = {
+      format = "--format",
+    },
+  },
+
   reset = config {
     flags = {
       hard = "--hard",
@@ -464,6 +489,11 @@ local configurations = {
     },
     options = {
       abbrev_ref = "--abbrev-ref",
+    },
+  },
+  ["symbolic-ref"] = config {
+    flags = {
+      short = "--short",
     },
   },
 
