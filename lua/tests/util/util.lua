@@ -36,6 +36,7 @@ end
 ---@return string The path to the temporary directory
 function M.create_temp_dir(suffix)
   suffix = "neogit-" .. (suffix or "")
+  suffix = suffix .. "-XXXXX"
 
   local cmd
   if is_macos() then

@@ -22,7 +22,7 @@ else
   ensure_installed("nvim-telescope/telescope.nvim")
 end
 
-require("plenary.test_harness").test_directory("tests/specs", {
-  minimal_init = "tests/minimal_init.lua",
+require("plenary.test_harness").test_directory("lua/tests/specs", {
+  minimal_init = "lua/tests/minimal_init.lua",
   sequential = true,
 })

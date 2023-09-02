@@ -13,7 +13,7 @@ function M.setup_bare_repo()
 
   local workspace_dir = util.create_temp_dir("base-dir")
   vim.api.nvim_set_current_dir(project_dir)
-  util.system("cp -r tests/.repo " .. workspace_dir)
+  util.system("cp -r lua/tests/.repo " .. workspace_dir)
   vim.api.nvim_set_current_dir(workspace_dir)
   util.system([[
     mv ./.repo/.git.orig ./.git
